@@ -1,0 +1,67 @@
+
+<div class="loginBox">
+	<!-- <div class="loginContent"> -->
+	<div id="loginContent">IncrediP<span><i class="fa fa-question-circle"></i></span>ll
+  	
+  <div class="loginWit">
+  <h3>Login or Register with</h3>
+
+        <!-- <a href="" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+ 	<div class="loginSocialBtns">
+ 		<a href="/auth/facebook"><img src="/images/fbBtn.png"></a>
+ 		<a href="/auth/twitter"><img src="/images/twitterBtn.png"></a>
+ 		<a href="/auth/google"><img src="/images/googleBtn.png"></a>
+ 		<a href="/auth/linkedin"><img src="/images/linkedInBtn.png"></a>
+ 	</div> -->
+ 	<div ng-click="showLocalLogin()" class="btn btn-default"><span class="fa fa-user"></span> Local Login</div>
+    <div ng-click="showLocalSignup()" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</div>
+    <a redir href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+    <a redir href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
+    <a redir href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a>
+ 	</div>
+ 	</div>
+</div>
+
+<div ng-show="!loginInfo" class="col-sm-6 col-sm-offset-3">
+	<h1><span class="fa fa-sign-in"></span> Login</h1>
+	<div growl></div>
+	<!-- LOGIN FORM -->
+	<form ng-submit="login()">
+		<div class="form-group">
+			<label>Email</label>
+			<input type="text" class="form-control" ng-model="email">
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" class="form-control" ng-model="password">
+		</div>
+		<button type="submit" class="btn btn-warning btn-lg">Login</button>
+	</form>
+	<hr>
+	<p>Need an account? <a href="/signup">Signup</a></p>
+	<p>Or go <a href="/">home</a>.</p>
+</div>
+
+<div ng-show="!signupInfo" class="col-sm-6 col-sm-offset-3">
+	<h1><span class="fa fa-sign-in"></span> Signup</h1>
+	<div growl></div>
+	<!-- LOGIN FORM -->
+	<form ng-submit="signup()">
+		<div class="form-group">
+			<label>Email</label>
+			<input type="text" class="form-control" ng-model="email">
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" class="form-control" ng-model="password">
+		</div>
+		<button type="submit" class="btn btn-warning btn-lg">Signup</button>
+	</form>
+	<hr>
+	<p>Already have an account? <a href="/">Login</a></p>
+	<p>Or go <a href="/">home</a>.</p>
+</div>
+	
+
+

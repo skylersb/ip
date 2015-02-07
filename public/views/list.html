@@ -1,0 +1,61 @@
+
+<!-- Add Poll Question INPUT -->
+<div ng-show="!createPollBtn">
+	<div class="submitQuestionContainer">
+		<input id="questionBox" class="form-control question-box" type="text" ng-model="poll.question" placeholder="Write Poll Question">
+
+		<!-- Add Options INPUT-->
+			<div class="optionCreateBtns">
+				<div id="optionClass" class="form-group" ng-repeat="pollOption in poll.pollOptions">
+					<input type="text" ng-model="pollOption.text" name="" placeholder="write an option" class="optionBox">
+					<!-- Remove Options -->
+					<i class="fa fa-trash fa-lg" ng-click="removeOption()"></i>
+				</div>
+			</div>
+	</div>
+		<!-- Add Another Option BUTTON -->
+		<div class="addCreateBtns">
+			<div class="addBtn">
+				<button class="btn btn-primary"  ng-click="addOption()">Add Option</button>
+			</div>
+			<!-- CREATE POLL BUTTON -->
+			<div class="createPollBtn">
+				<button id="pollBtn" class="btn btn-primary" ng-click="testCreatePoll()">Create Poll</button>
+			</div>
+		</div>
+</div>
+<button id="createAPollBtn" class='btn btn-primary' ng-show="createPollBtn" ng-click="showPollSetup()">Create Poll</button>
+<div id="pollsContainer" class="row">
+	<div class="col-md-6">
+		<div id="panle1" class="panel1">
+			<div class="top-panel1">
+<!-- LIST OF NEW POLLS -->
+				<h1 id="newTitle">New Polls</h1>
+			</div>
+			<input id="searchPolls" type="text" class="form-control" ng-model="query" placeholder="Search for a poll">
+			<div class="mainPolls"ng-repeat="poll in polls | filter:query">
+				{{poll.question}}
+				<br /> 
+				<!-- TAKE POLL BTN -->
+				<button id="takePollBtn" ng-show="!poll.pollTaken" ng-click="takePoll(poll)" class="btn btn-primary">Take Poll</button>
+				<button ng-show="poll.pollTaken" ng-click="viewStats(poll)" class="btn btn-primary">View Stats</button>
+			</div>
+		</div>
+	</div>
+	<!-- TRENDING POLLLS -->
+	<div class="col-md-6">
+		<div id="panel2" class="panel2">
+			<div class="top-panel2">
+				<h1 id="completeTitle">Trending Polls</h1>
+			</div>
+			<input id="searchPolls" type="text" class="form-control" ng-model="query2" placeholder="Search for a poll">
+			<div class="mainPolls" ng-repeat="poll in trendingPolls | filter:query2">{{poll.question}}
+				<!-- | limitTo: limit | orderBy: allVotes -->
+				<br />
+				<button id="takePollBtn" ng-show="!poll.pollTaken" ng-click="takePoll(poll)" class="btn btn-primary">Take Poll</button>
+				<button ng-show="poll.pollTaken" ng-click="viewStats(poll)" class="btn btn-primary">View Stats</button>
+			</div>
+		</div>
+	</div>
+</div>
+	

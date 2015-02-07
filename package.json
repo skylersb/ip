@@ -1,0 +1,46 @@
+{
+  "name": "ip",
+  "version": "1.0.0",
+  "description": "ip =============",
+  "main": "server.js",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "bcrypt-nodejs": "^0.0.3",
+    "cookie-parser": "^1.3.3",
+    "body-parser": "^1.10.0",
+    "cors": "^2.5.2",
+    "ejs": "^2.2.4",
+    "express-session": "^1.9.3",
+    "express": "^4.10.6",
+    "method-override": "^2.3.1",
+    "morgan": "^1.5.1",
+    "mongoose": "^3.8.18",
+    "mongodb": "^1.4.26",
+    "passport": "^0.2.1",
+    "passport-facebook": "^1.0.3",
+    "passport-google": "^0.3.0",
+    "passport-google-oauth": "^0.1.5",
+    "passport-google-plus": "^0.5.0",
+    "passport-google-token": "^0.1.1",
+    "passport-local": "^1.0.0",
+    "passport-linkedin": "^0.1.3",
+    "passport-twitter": "^1.0.2",
+    "path": "^0.11.14",
+    "socket.io": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skylersb/ip.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skylersb/ip/issues"
+  },
+  "homepage": "https://github.com/skylersb/ip"
+}
