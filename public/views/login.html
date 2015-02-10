@@ -3,8 +3,8 @@
 	<!-- <div class="loginContent"> -->
 	<div id="loginContent">IncrediP<span><i class="fa fa-question-circle"></i></span>ll
   	
-  <div class="loginWit">
-  <h3>Login or Register with</h3>
+  <div class="loginWith">
+  <h3 class="loginTitle">Login with</h3>
 
         <!-- <a href="" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
         <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
@@ -14,12 +14,15 @@
  		<a href="/auth/google"><img src="/images/googleBtn.png"></a>
  		<a href="/auth/linkedin"><img src="/images/linkedInBtn.png"></a>
  	</div> -->
- 	<div ng-click="showLocalLogin()" class="btn btn-default"><span class="fa fa-user"></span> Local Login</div>
-    <div ng-click="showLocalSignup()" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</div>
+ 	<div ng-click="showLocalLogin()" class="btn btn-primary"><span class="fa fa-user"></span> Local Login</div>
     <a redir href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
     <a redir href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
     <a redir href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a>
  	</div>
+ 	<h3 class="registerTitle">or Register</br>
+ 	</br>
+ 	<div ng-click="showLocalSignup()" class="btn btn-primary"><span class="fa fa-user"></span> Local Signup</div>
+ 	</h3>
  	</div>
 </div>
 

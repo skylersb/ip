@@ -1,50 +1,57 @@
  "use-strict";
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var bcrypt   = require('bcrypt-nodejs');
 
+// define the schema for our user model
+var userSchema = mongoose.Schema({
 
-var User = new Schema({
-       userName: {type: String},
-       facebookId: {type: String},
-       accountCreated: {type: Date},
-       email: {type: String},
-       admin: {type: Boolean, default:false},
-       votedPolls: [ {type: mongoose.Schema.Types.ObjectId, ref: 'Poll'} ],
-       myPolls: [ {type: mongoose.Schema.Types.ObjectId, ref: 'Poll'} ]
+    local            : {
+        email        : String,
+        password     : String,
+    },
+    facebook         : {
+        id           : String,
+        token        : String,
+        email        : String,
+        name         : String
+    },
+    twitter          : {
+        id           : String,
+        token        : String,
+        displayName  : String,
+        username     : String
+    },
+    google           : {
+        id           : String,
+        token        : String,
+        email        : String,
+        name         : String
+    }
 
-       
-})
+});
 
-//  var User = new Schema({
+// generating a hash
+userSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
 
-// 		local            : {
-//         email        : String,
-//         password     : String,
-//     },
-//     facebook         : {
-//         id           : String,
-//         token        : String,
-//         email        : String,
-//         name         : String
-//     },
-//     twitter          : {
-//         id           : String,
-//         token        : String,
-//         displayName  : String,
-//         username     : String
-//     },
-//     google           : {
-//         id           : String,
-//         token        : String,
-//         email        : String,
-//         name         : String
-//     },
+// checking if password is valid
+userSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.local.password);
+};
+
+// create the model for users and expose it to our app
+module.exports = mongoose.model('User', userSchema);
+
+// var User = new Schema({
+//        userName: {type: String},
+//        facebookId: {type: String},
+//        accountCreated: {type: Date},
+//        email: {type: String},
+//        admin: {type: Boolean, default:false},
 //        votedPolls: [ {type: mongoose.Schema.Types.ObjectId, ref: 'Poll'} ],
 //        myPolls: [ {type: mongoose.Schema.Types.ObjectId, ref: 'Poll'} ]
 
        
-// });
+// })
 
-
-
-module.exports = mongoose.model("User", User);

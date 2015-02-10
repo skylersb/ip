@@ -5,17 +5,18 @@ var Poll = require('./poll/pollModel');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var User = require('./user/userModel');
+
 module.exports.index = function(req, res) {
-  res.sendFile('./public/index.html', {title: 'Polls'});
+  res.sendfile('./public/index.html', {title: 'Polls'});
 };
 
-module.exports.login = function(req, res){
-  res.sendfile('./public/views/login.html', {message: req.flash('loginMessage')});
-};
+// module.exports.login = function(req, res){
+//   res.sendfile('./public/views/login.html', {message: req.flash('loginMessage')});
+// };
 
-module.exports.signup = function(req, res){
-  res.sendfile('./public/views/signup.html', {message: req.flash('signupMessage')});
-};
+// module.exports.signup = function(req, res){
+//   res.sendfile('./public/views/signup.html', {message: req.flash('signupMessage')});
+// };
 
 
 module.exports.profile = function(req, res){

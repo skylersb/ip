@@ -30,16 +30,7 @@ app.controller('loginControl', function($scope, $http, $location, userService, $
         console.log(data);
     });
 }
-    $scope.connect = function() {
-        $http
-        .post('/connect/local', {
-            email: this.email,
-            password: this.password
-        })
-        .success(function(data) {
-            console.log(data);
-        });
-    }
+    
 
     $scope.signup = function() {
         console.log("Boom");

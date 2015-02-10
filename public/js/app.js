@@ -40,6 +40,10 @@ app.config(function($routeProvider, $httpProvider){
 		templateUrl: 'views/login.html',
 		controller: 'loginControl'
 	})
+	.when('/connect/local', {
+		templateUrl: 'views/profile.html',
+		controller: 'profileControl'
+	})
 	// .when('/home/:user', {
 	// 	templateUrl: 'views/list.html',
 	// 	controller: 'mainControl',
